@@ -4,82 +4,54 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
+use App\User;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $reservation = Reservation::all();
+        return view('reservations.index', compact('reservations'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('reservation.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
-        //
+        $reservation = Reservation::create($request->validated());
+        $reservation->user_id = Auth::id();
+        $reservation->save();
+        return redirect()->back()->with('message','Complimenti hai prenotato il tuo appuntamento con successo');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
     public function show(Reservation $reservation)
     {
-        //
+        $reservation = Reservation::find($reservation);
+        return view('reservation.show',compact('reservation'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Reservation $reservation)
     {
-        //
+        $reservation = Reservation::find($reservation);
+        return view('reservation.edit', compact('reservation'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Reservation $reservation)
+    public function update(ReservationRequest $request, Reservation $reservation)
     {
-        //
+        $reservation = Reservation::find($reservation);
+        $reservation->update($request->validated());
+        return redirect()->back()->with('message','Complimenti hai modificato la prenotazione');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Reservation $reservation)
     {
-        //
+        $reservation = Reservation::find($reservation);
+        $reservation->delete();
+        return redirect()->back()->with('message', 'Complimenti hai cancellato la prenotazione');
     }
 }
