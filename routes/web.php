@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ReservationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,11 +14,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// ROTTA HOME
+Route::get('/', 'GuestController@homepage')->name('homepage');
+
+/* // ROTTA INDEX
+Route::get('/prenotazioni','ReservationController@index')->name('reservations_index');
+
+// ROTTA CREATE - FORM
+Route::get('/prenotazioni/create','ReservationController@create')->name('reservations_create');
+
+// ROTTA STORE - CATTURIAMO I DATI
+Route::post('/prenotazioni/store','ReservationController@store')->name('reservations_store');
+
+// ROTTA EDIT
+Route::get('/prenotazioni/edit/{reservation}','ReservationController@edit')->name('reservations_edit');
+
+// ROTTA UPDATE
+Route::post('/prenotazioni/update/{reservation}','ReservationController@update')->name('reservations_update');
+
+// ROTTA SHOW
+Route::get('/prenotazioni/show/{reservation}','ReservationController@show')->name('reservations_show');
+
+// ROTTA DELETE - ELIMINARE LA PRENOTAZIONE
+Route::delete('/prenotazioni/elimina/{reservation}', 'ReservationController@destroy')->name('reservations_destroy');
+ */
+//ROTTA RESOURCE
+Route::resource('reservations', 'ReservationController');
+
