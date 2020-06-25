@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // ROTTA HOME
-Route::get('/', 'GuestController@homepage')->name('homepage');
+Route::get('/', 'MainController@homepage')->name('homepage');
 
 /* // ROTTA INDEX
 Route::get('/prenotazioni','ReservationController@index')->name('reservations_index');
