@@ -23,7 +23,7 @@ class ReservationController extends Controller
         return view('reservations.index', compact('reservations'));
     }
 
-    public function create()
+    public function create() //FORM
     {
         return view('reservations.create');
     }
@@ -33,7 +33,7 @@ class ReservationController extends Controller
         $reservation = Reservation::create($request->validated());
         $reservation->user_id = Auth::id();
         $reservation->save();
-        return redirect()->back()->with('message','Complimenti hai prenotato il tuo appuntamento con successo');
+        return redirect(route('reservations.index'))->with('message','Complimenti hai prenotato il tuo appuntamento con successo');
     }
 
     public function show(Reservation $reservation)
@@ -51,7 +51,7 @@ class ReservationController extends Controller
     public function update(ReservationRequest $request, Reservation $reservation)
     {
         $reservation->update($request->validated());
-        return redirect()->back()->with('message','Complimenti hai modificato la prenotazione');
+        return redirect(route('reservations.index'))->with('message','Complimenti hai modificato la prenotazione');
     }
 
     public function destroy(Reservation $reservation)
