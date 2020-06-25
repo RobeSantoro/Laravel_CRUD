@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,7 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in!
+
+                    {{-- Questo mi obbliga a mettere il middleware --}}
+                    <p class="">Hello {{ Auth::user()->name }}, you are logged in!</p>
+
+                    <a class="btn btn-primary float-right" href="{{ route('reservations.create') }}">Prenota</a>
+                    <a class="btn btn-secondary float-left" href="{{ route('reservations.index') }}">Lista Prenotazioni</a>
+
                 </div>
             </div>
         </div>
