@@ -50,7 +50,7 @@
                     <label for="4">Trattamento</label>
                     <input type="text" name="trattamento" class="form-control" id="4" value="{{ $reservation->trattamento, old('trattamento') }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Modifica</button>
             </form>
         </div>
     </div>
