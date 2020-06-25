@@ -10,6 +10,12 @@ use App\User;
 
 class ReservationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $reservations = Reservation::all();
@@ -38,13 +44,12 @@ class ReservationController extends Controller
 
     public function edit(Reservation $reservation)
     {
-        $reservation = Reservation::find($reservation);
+        $reservation = Reservation::find($reservation)->first();
         return view('reservations.edit', compact('reservation'));
     }
 
     public function update(ReservationRequest $request, Reservation $reservation)
     {
-        $reservation = Reservation::find($reservation);
         $reservation->update($request->validated());
         return redirect()->back()->with('message','Complimenti hai modificato la prenotazione');
     }
