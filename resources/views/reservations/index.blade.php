@@ -30,8 +30,8 @@
 
     <div class="row ">
         <div class="col-12">
-            <h2 class="d-inline">Hello {{ Auth::user()->name }}, you are logged in!</h2>
-            <a class="btn btn-primary float-right mb-5" href="{{ route('reservations.create') }}">Nuova Prenotazione</a>
+            <h2 class="d-block d-md-inline">Hello {{ Auth::user()->name }}, you are logged in!</h2>
+            <a class="btn btn-primary float-left float-md-right mb-3 mb-md-5" href="{{ route('reservations.create') }}">Nuova Prenotazione</a>
 
             <table class="table table-hover">
                 <thead>
