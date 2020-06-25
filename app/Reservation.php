@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    protected $fillable = [
+    protected $fillable =
+    [
         'data',
         'trattamento',
-        'user_id'];
+        'user_id'
+    ];
 
     public function user()
     {

@@ -41,5 +41,5 @@ Route::get('/prenotazioni/show/{reservation}','ReservationController@show')->nam
 Route::delete('/prenotazioni/elimina/{reservation}', 'ReservationController@destroy')->name('reservations_destroy');
  */
 //ROTTA RESOURCE
-Route::resource('reservations', 'ReservationController');
 
+Route::resource('reservations', 'ReservationController');
