@@ -12,13 +12,14 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservation = Reservation::all();
+        $reservations = Reservation::all();
+        /* dd($reservation); */
         return view('reservations.index', compact('reservations'));
     }
 
     public function create()
     {
-        return view('reservation.create');
+        return view('reservations.create');
     }
 
     public function store(ReservationRequest $request)
@@ -32,13 +33,13 @@ class ReservationController extends Controller
     public function show(Reservation $reservation)
     {
         $reservation = Reservation::find($reservation);
-        return view('reservation.show',compact('reservation'));
+        return view('reservations.show',compact('reservation'));
     }
 
     public function edit(Reservation $reservation)
     {
         $reservation = Reservation::find($reservation);
-        return view('reservation.edit', compact('reservation'));
+        return view('reservations.edit', compact('reservation'));
     }
 
     public function update(ReservationRequest $request, Reservation $reservation)
@@ -50,8 +51,7 @@ class ReservationController extends Controller
 
     public function destroy(Reservation $reservation)
     {
-        $reservation = Reservation::find($reservation);
-        $reservation->delete();
+        $reservation->delete('user_id');
         return redirect()->back()->with('message', 'Complimenti hai cancellato la prenotazione');
     }
 }
