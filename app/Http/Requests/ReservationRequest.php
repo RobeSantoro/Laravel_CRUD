@@ -14,8 +14,8 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'data' => '',
-            'trattamento' => '',
+            'data' => 'required',
+            'trattamento' => 'required'
         ];
     }
 }
