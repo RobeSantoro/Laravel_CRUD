@@ -9,7 +9,7 @@
                 @csrf
                 <div class="form-group m-0 mt-2">
                     <label class="m-0" for="exampleInputEmail1">Data</label>
-                    <input type="datetime-local" name="data" class="form-control" id="exampleInputEmail1"
+                    <input type="date" name="data" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                 </div>
                 @if($errors->has('data'))
