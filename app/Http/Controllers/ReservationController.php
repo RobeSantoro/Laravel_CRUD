@@ -19,16 +19,16 @@ class ReservationController extends Controller
     public function index()
     {
         $reservations = Reservation::all();
-        /* dd($reservation); */
+        /* dd($reservations); */
         return view('reservations.index', compact('reservations'));
     }
 
-    public function create() //FORM
+    public function create() //GET Restituisce la vista del FORM
     {
         return view('reservations.create');
     }
 
-    public function store(ReservationRequest $request)
+    public function store(ReservationRequest $request) //POST Viene eseguita dal pulsante Submit del FORM
     {
         $reservation = Reservation::create($request->validated());
         $reservation->user_id = Auth::id();
@@ -36,15 +36,14 @@ class ReservationController extends Controller
         return redirect(route('reservations.index'))->with('message','Complimenti hai prenotato il tuo appuntamento con successo');
     }
 
-    public function show(Reservation $reservation)
+    public function show(Reservation $reservation) //
     {
         $reservation = Reservation::find($reservation);
         return view('reservations.show',compact('reservation'));
     }
 
-    public function edit(Reservation $reservation)
+    public function edit(Reservation $reservation) //GET Viene eseguita dal pulsante Edit
     {
-        $reservation = Reservation::find($reservation)->first();
         return view('reservations.edit', compact('reservation'));
     }
 
