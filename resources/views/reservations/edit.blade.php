@@ -33,14 +33,6 @@
             <form action="{{ route('reservations.update', compact('reservation')) }}" method="POST">
                 @method('PUT')
                 @csrf
-                <div class="form-group">
-                    <label for="1">Nome</label>
-                    <input type="text" name="name" class="form-control" id="1" value="{{ $reservation->user->name, old('name') }}">
-                </div>
-                <div class="form-group">
-                    <label for="2">Email</label>
-                    <input type="email" name="email" class="form-control" id="2" value="{{ $reservation->user->email, old('email') }}">
-                </div>
 
                 <div class="form-group">
                     <label for="3">Data</label>
@@ -51,6 +43,7 @@
                     <input type="text" name="trattamento" class="form-control" id="4" value="{{ $reservation->trattamento, old('trattamento') }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Modifica</button>
+
             </form>
         </div>
     </div>
