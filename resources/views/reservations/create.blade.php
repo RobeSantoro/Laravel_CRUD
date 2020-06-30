@@ -7,23 +7,35 @@
         <div class="col-8">
             <form action="{{ route('reservations.store') }}" method="POST">
                 @csrf
+
                 <div class="form-group m-0 mt-2">
                     <label class="m-0" for="exampleInputEmail1">Data</label>
                     <input type="date" name="data" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                        aria-describedby="emailHelp" value=" {{ old('data') }} ">
                 </div>
+
                 @if($errors->has('data'))
                     <p style="color:red;">{{ $errors->first('data') }}</p>
                 @endif
+
                 <div class="form-group m-0 mt-2">
-                    <label class="m-0" for="exampleInputEmail1">Trattamento</label>
-                    <input type="text" name="trattamento" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                    <label for="role" class="mb-0">Trattamento</label>
+
+                    <div class="col-12 px-0">
+                        <select id="role" class="form-control" name="trattamento">
+                            {{-- Sarà il @foreach della table Trattamenti --}}
+                            <option>Carie</option>
+                            <option>Pulizia</option>
+                            <option>Dentiera</option>
+                        </select>
+                    </div>
                 </div>
+
                 @if($errors->has('trattamento'))
                     <p style="color:red;">{{ $errors->first('trattamento') }}</p>
                 @endif
-                <button type="submit" class="btn btn-primary mt-4">Submit</button>
+
+                <button type="submit" class="btn btn-primary my-3">Submit</button>
             </form>
         </div>
     </div>
