@@ -11,4 +11,10 @@ class Doctor extends Model
         'name',
         'reparto'
     ];
+
+    public function reservations()
+    {
+        return $this->belongsToMany('App\Reservations');
+    }
+
 }
