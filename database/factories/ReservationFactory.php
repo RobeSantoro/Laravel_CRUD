@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Reservation::class, function (Faker $faker) {
     return [
-        'data' => $faker->date,
-        'trattamento' => $faker->word,
+        'data' => $faker->dateTimeBetween('now', '+1 years'),
+        'trattamento' => $faker->randomElement($array = array ('Carie','Pulizia','Dentiera')) ,
         'user_id' => User::all()->random()->id,
     ];
 });
