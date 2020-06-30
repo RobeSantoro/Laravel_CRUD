@@ -3,6 +3,19 @@
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
+
+    {{-- Come fare a mandare un messaggio per avvisare che si deve essere loggati? --}}
+    <div class="row">
+        <div class="col-12">
+            @if(session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+        </div>
+    </div>
+    {{-- Come fare a mandare un messaggio per avvisare che si deve essere loggati? --}}
+
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
