@@ -16,7 +16,7 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
 
-            $table->dateTime('data'); // L'attributo name="" del tag Input all'interno del tag form
+            $table->date('data'); // L'attributo name="" del tag Input all'interno del tag form
 
             $table->string('trattamento'); // L'attributo name="" del tag input all'interno del tag form
 
