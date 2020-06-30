@@ -43,3 +43,6 @@ Route::delete('/prenotazioni/elimina/{reservation}', 'ReservationController@dest
 //ROTTA RESOURCE
 
 Route::resource('reservations', 'ReservationController')->except([ 'show' ]);
+
+Route::resource('doctors', 'DoctorController');
+
