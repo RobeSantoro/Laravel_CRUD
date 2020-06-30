@@ -14,8 +14,8 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'data' => 'required',
-            'trattamento' => 'required'
+            'data' => 'required|date|after:now',
+            'trattamento' => 'required|in:Carie,Pulizia,Dentiera'
         ];
     }
 }
