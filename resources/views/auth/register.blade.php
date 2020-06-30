@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -37,6 +37,19 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+
+                            <div class="col-md-6">
+                                <select id="role" class="form-control" name="role">
+                                    <option>Patient</option>
+                                    <option>Doctor</option>
+                                    <option>Admin</option>
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="form-group row">
