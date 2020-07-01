@@ -55,7 +55,7 @@ class ReservationController extends Controller
 
     public function destroy(Reservation $reservation)
     {
-        $reservation->delete('user_id');
+        $reservation->delete();
         return redirect()->back()->with('message', 'Complimenti hai cancellato la prenotazione');
     }
 }

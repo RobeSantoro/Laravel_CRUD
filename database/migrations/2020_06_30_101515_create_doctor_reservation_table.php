@@ -17,10 +17,10 @@ class CreateDoctorReservationTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('doctor_id')->nullable();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('SET NULL');
 
             $table->unsignedBigInteger('reservation_id')->nullable();
-            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('SET NULL');
 
             $table->timestamps();
         });
