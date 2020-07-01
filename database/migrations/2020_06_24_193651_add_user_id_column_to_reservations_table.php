@@ -15,7 +15,7 @@ class AddUserIdColumnToReservationsTable extends Migration
     {
         Schema::table('reservations', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
         });
     }
 
@@ -32,3 +32,6 @@ class AddUserIdColumnToReservationsTable extends Migration
         });
     }
 }
+
+
+/* php artisan make:migration add_user_id_to_reservations */
