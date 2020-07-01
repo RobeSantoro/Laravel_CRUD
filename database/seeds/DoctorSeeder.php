@@ -13,6 +13,4 @@ class DoctorSeeder extends Seeder
     {
         factory(App\Doctor::class, 5)->create();
     }
-
-    }
-
+}
