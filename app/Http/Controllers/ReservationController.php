@@ -36,7 +36,7 @@ class ReservationController extends Controller
         return redirect(route('reservations.index'))->with('message','Complimenti hai prenotato il tuo appuntamento con successo');
     }
 
-/*     public function show(Reservation $reservation) //
+    /*public function show(Reservation $reservation) //
     {
         $reservation = Reservation::find($reservation);
         return view('reservations.show',compact('reservation'));
