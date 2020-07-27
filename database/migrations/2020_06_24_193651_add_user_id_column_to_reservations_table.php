@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddUserIdColumnToReservationsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
@@ -19,11 +14,6 @@ class AddUserIdColumnToReservationsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('reservations', function (Blueprint $table) {
