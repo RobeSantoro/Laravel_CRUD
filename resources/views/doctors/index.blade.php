@@ -31,7 +31,7 @@
     <div class="row ">
         <div class="col-12">
             <h2 class="d-block d-md-inline">Hello {{ Auth::user()->name }}, you are logged in!</h2>
-            <a class="btn btn-primary float-left float-md-right mb-3 mb-md-5" href="{{ route('reservations.create') }}">Nuova Prenotazione</a>
+            <a class="btn btn-primary float-left float-md-right mb-3 mb-md-5" href="{{ route('doctors.create') }}">Nuova Prenotazione</a>
 
             <table class="table table-hover">
                 <thead>
@@ -46,19 +46,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($reservations as $reservation)
+                    @foreach($doctors as $doctor)
                         <tr>
-                            <th scope="row">{{ $reservation->user->id }}</th>
-                            <td>{{ $reservation->user->name }}</td>
-                            <td>{{ $reservation->user->email }}</td>
-                            <td>{{ $reservation->data }}</td>
-                            <td>{{ $reservation->trattamento }}</td>
+                            <th scope="row">{{ $doctor->user->id }}</th>
+                            <td>{{ $doctor->user->name }}</td>
+                            <td>{{ $doctor->user->email }}</td>
+                            <td>{{ $doctor->data }}</td>
+                            <td>{{ $doctor->trattamento }}</td>
                             <td>
                                 <a class="btn btn-success"
-                                    href="{{ route('reservations.edit',compact('reservation')) }}">Modifica</a>
+                                    href="{{ route('doctors.edit',compact('doctor')) }}">Modifica</a>
                             </td>
                             <td>
-                                <form action="{{ route('reservations.destroy',compact('reservation')) }}" method="POST">
+                                <form action="{{ route('doctors.destroy',compact('doctor')) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Elimina</button>
